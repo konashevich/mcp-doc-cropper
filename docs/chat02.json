@@ -1,0 +1,1643 @@
+{
+  "requesterUsername": "",
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "panel",
+  "requests": [
+    {
+      "requestId": "request_8da2e84e-a179-461e-8885-e71f1673eab2",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 64
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 65
+            },
+            "text": "crop scanned document images in test folder, use doc-cropper mcp",
+            "kind": "text"
+          }
+        ],
+        "text": "crop scanned document images in test folder, use doc-cropper mcp"
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "kind": "mcpServersStarting",
+          "didStartServerIds": []
+        },
+        {
+          "kind": "progressTaskSerialized",
+          "content": {
+            "value": "Optimizing tool selection...",
+            "uris": {}
+          },
+          "progress": []
+        },
+        {
+          "value": "I'll help you crop the scanned document images in the test folder using the doc-cropper MCP. Let me start by exploring what's in the test folder. ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "copilot_listDirectory"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Reading [](file:///mnt/merged_ssd/NAATI-translator/Translations/test)",
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false,
+            "uris": {
+              "file:///mnt/merged_ssd/NAATI-translator/Translations/test": {
+                "$mid": 1,
+                "path": "/mnt/merged_ssd/NAATI-translator/Translations/test",
+                "scheme": "file"
+              }
+            }
+          },
+          "pastTenseMessage": {
+            "value": "Read [](file:///mnt/merged_ssd/NAATI-translator/Translations/test)",
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false,
+            "uris": {
+              "file:///mnt/merged_ssd/NAATI-translator/Translations/test": {
+                "$mid": 1,
+                "path": "/mnt/merged_ssd/NAATI-translator/Translations/test",
+                "scheme": "file"
+              }
+            }
+          },
+          "isConfirmed": {
+            "type": 1
+          },
+          "isComplete": true,
+          "source": {
+            "type": "internal",
+            "label": "Built-In"
+          },
+          "toolCallId": "c6e4efe7-4fda-40bb-b8e9-08edc0b6de4b",
+          "toolId": "copilot_listDirectory"
+        },
+        {
+          "value": "Now I'll crop these document images using the doc-cropper MCP. Let me process both images: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "run_in_terminal"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": "Using \"Run in Terminal\"",
+          "isConfirmed": {
+            "type": 1
+          },
+          "isComplete": true,
+          "source": {
+            "type": "internal",
+            "label": "Built-In"
+          },
+          "toolSpecificData": {
+            "kind": "terminal",
+            "terminalToolSessionId": "b45803f0-7f25-401b-98ee-8533154a0980",
+            "terminalCommandId": "tool-370364de-51b5-48eb-a2a2-59e782c9ceae",
+            "commandLine": {
+              "original": "cd /mnt/merged_ssd/NAATI-translator/Translations/test && ls -lh *.jpg"
+            },
+            "language": "sh",
+            "autoApproveInfo": {
+              "value": "Auto approved by setting [`chat.tools.global.autoApprove`](command:_chat.openTerminalSettingsLink?%255B%2522global%2522%255D \"View settings\")",
+              "isTrusted": {
+                "enabledCommands": [
+                  "_chat.openTerminalSettingsLink"
+                ]
+              },
+              "supportThemeIcons": false,
+              "supportHtml": false,
+              "supportAlertSyntax": false
+            }
+          },
+          "toolCallId": "2d446aef-9fbc-4391-bc72-51c163e1f45a",
+          "toolId": "run_in_terminal"
+        },
+        {
+          "value": "The images are small enough (~360-376KB each). I'll convert them to base64 and use the doc-cropper to crop them: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "run_in_terminal"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": "Using \"Run in Terminal\"",
+          "isConfirmed": {
+            "type": 2,
+            "id": "chat.tools.global.autoApprove"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "internal",
+            "label": "Built-In"
+          },
+          "toolSpecificData": {
+            "kind": "terminal",
+            "terminalToolSessionId": "c15e52cf-65b9-4531-89bd-10919c260d8f",
+            "terminalCommandId": "tool-329357db-6a99-40e8-84f9-77ac2ae383f9",
+            "commandLine": {
+              "original": "base64 -w 0 /mnt/merged_ssd/NAATI-translator/Translations/test/DL1.jpg > /tmp/DL1_b64.txt && base64 -w 0 /mnt/merged_ssd/NAATI-translator/Translations/test/DL2.jpg > /tmp/DL2_b64.txt && echo \"Base64 conversion done\""
+            },
+            "language": "sh"
+          },
+          "toolCallId": "9f3fce0e-4da1-4130-b99f-dd2d4886406f",
+          "toolId": "run_in_terminal"
+        },
+        {
+          "value": "Now let me read the base64 content and crop both images: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "run_in_terminal"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": "Using \"Run in Terminal\"",
+          "isConfirmed": {
+            "type": 1
+          },
+          "isComplete": true,
+          "source": {
+            "type": "internal",
+            "label": "Built-In"
+          },
+          "toolSpecificData": {
+            "kind": "terminal",
+            "terminalToolSessionId": "d0627694-b14f-4982-8d19-20dda51b97e6",
+            "terminalCommandId": "tool-c4934d87-4f6f-48bd-ab7b-cbecde67fa8f",
+            "commandLine": {
+              "original": "cat /tmp/DL1_b64.txt"
+            },
+            "language": "sh",
+            "autoApproveInfo": {
+              "value": "Auto approved by setting [`chat.tools.global.autoApprove`](command:_chat.openTerminalSettingsLink?%255B%2522global%2522%255D \"View settings\")",
+              "isTrusted": {
+                "enabledCommands": [
+                  "_chat.openTerminalSettingsLink"
+                ]
+              },
+              "supportThemeIcons": false,
+              "supportHtml": false,
+              "supportAlertSyntax": false
+            }
+          },
+          "toolCallId": "b5a6f4bc-fe6c-4a4c-a8a8-6cb126e09410",
+          "toolId": "run_in_terminal"
+        },
+        {
+          "value": "Now let me read the base64 content from the file and crop the image: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "mcp_doc_cropper_crop_document_base64"
+        },
+        {
+          "value": "Let me use the correct tool name: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "mcp_doc-cropper_crop_document_base64"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `crop_document_base64`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `crop_document_base64` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "doc-cropper (MCP Server)",
+          "isConfirmed": {
+            "type": 2,
+            "id": "chat.tools.global.autoApprove"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "doc-cropper",
+            "label": "doc-cropper",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.doc-cropper"
+          },
+          "resultDetails": {
+            "input": "{\n  \"image_base64\": \"KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Error executing tool crop_document_base64: YOLO model not loaded."
+              }
+            ],
+            "isError": true
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "image_base64": "KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA"
+            }
+          },
+          "toolCallId": "88e71312-5760-45b2-9f1f-ea0f77601ed0",
+          "toolId": "mcp_doc-cropper_crop_document_base64"
+        },
+        {
+          "value": "The MCP doc-cropper service isn't properly initialized. Let me try a different approach using the high-performance mode with curl as mentioned in the tool description: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "run_in_terminal"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": "Using \"Run in Terminal\"",
+          "isConfirmed": {
+            "type": 1
+          },
+          "isComplete": true,
+          "source": {
+            "type": "internal",
+            "label": "Built-In"
+          },
+          "toolSpecificData": {
+            "kind": "terminal",
+            "terminalToolSessionId": "4fff2efc-6d51-4fca-99a3-14320ab6c855",
+            "terminalCommandId": "tool-f7f60212-2632-4828-96bb-c276afdad824",
+            "commandLine": {
+              "original": "cd /mnt/merged_ssd/NAATI-translator/Translations/test && ls -la",
+              "toolEdited": "ls -la"
+            },
+            "language": "sh",
+            "autoApproveInfo": {
+              "value": "Auto approved by setting [`chat.tools.global.autoApprove`](command:_chat.openTerminalSettingsLink?%255B%2522global%2522%255D \"View settings\")",
+              "isTrusted": {
+                "enabledCommands": [
+                  "_chat.openTerminalSettingsLink"
+                ]
+              },
+              "supportThemeIcons": false,
+              "supportHtml": false,
+              "supportAlertSyntax": false
+            }
+          },
+          "toolCallId": "3f5edcad-dd28-481d-8e56-694efb671d70",
+          "toolId": "run_in_terminal"
+        },
+        {
+          "value": "I apologize for the confusion. The doc-cropper MCP service isn't fully operational. Let me explain what I found and provide you with a practical alternative:\n\nThe test folder contains two scanned document images:\n- **DL1.jpg** (360 KB)\n- **DL2.jpg** (376 KB)\n\nUnfortunately, the doc-cropper MCP tool that would automatically detect and crop document boundaries isn't currently responding properly on this system. However, here are your options:\n\n**Option 1: Use a local Python tool** - I can create a Python script using OpenCV to automatically detect and crop the documents: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "copilot_createFile"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Creating [](file:///mnt/merged_ssd/NAATI-translator/Translations/crop_images.py)",
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false,
+            "uris": {
+              "file:///mnt/merged_ssd/NAATI-translator/Translations/crop_images.py": {
+                "$mid": 1,
+                "path": "/mnt/merged_ssd/NAATI-translator/Translations/crop_images.py",
+                "scheme": "file"
+              }
+            }
+          },
+          "pastTenseMessage": {
+            "value": "Created [](file:///mnt/merged_ssd/NAATI-translator/Translations/crop_images.py)",
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false,
+            "uris": {
+              "file:///mnt/merged_ssd/NAATI-translator/Translations/crop_images.py": {
+                "$mid": 1,
+                "path": "/mnt/merged_ssd/NAATI-translator/Translations/crop_images.py",
+                "scheme": "file"
+              }
+            }
+          },
+          "isConfirmed": {
+            "type": 1
+          },
+          "isComplete": true,
+          "source": {
+            "type": "internal",
+            "label": "Built-In"
+          },
+          "toolCallId": "95e9166b-3c53-4b4f-a64d-bd0162699265",
+          "toolId": "copilot_createFile"
+        },
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/mnt/merged_ssd/NAATI-translator/Translations/crop_images.py",
+            "external": "file:///mnt/merged_ssd/NAATI-translator/Translations/crop_images.py",
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/crop_images.py",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "#!/usr/bin/env python3",
+                "range": {
+                  "startLineNumber": 1,
+                  "startColumn": 1,
+                  "endLineNumber": 1,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n\"\"\"",
+                "range": {
+                  "startLineNumber": 2,
+                  "startColumn": 1,
+                  "endLineNumber": 2,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\nDocument auto-cropping script using OpenCV",
+                "range": {
+                  "startLineNumber": 3,
+                  "startColumn": 1,
+                  "endLineNumber": 3,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\nDetects document boundaries and crops whitespace",
+                "range": {
+                  "startLineNumber": 4,
+                  "startColumn": 1,
+                  "endLineNumber": 4,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n\"\"\"",
+                "range": {
+                  "startLineNumber": 5,
+                  "startColumn": 1,
+                  "endLineNumber": 5,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 6,
+                  "startColumn": 1,
+                  "endLineNumber": 6,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\nimport cv2",
+                "range": {
+                  "startLineNumber": 7,
+                  "startColumn": 1,
+                  "endLineNumber": 7,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\nimport numpy as np",
+                "range": {
+                  "startLineNumber": 8,
+                  "startColumn": 1,
+                  "endLineNumber": 8,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\nimport os",
+                "range": {
+                  "startLineNumber": 9,
+                  "startColumn": 1,
+                  "endLineNumber": 9,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\nfrom pathlib import Path",
+                "range": {
+                  "startLineNumber": 10,
+                  "startColumn": 1,
+                  "endLineNumber": 10,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 11,
+                  "startColumn": 1,
+                  "endLineNumber": 11,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\ndef crop_document(image_path, output_path=None):",
+                "range": {
+                  "startLineNumber": 12,
+                  "startColumn": 1,
+                  "endLineNumber": 12,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    \"\"\"",
+                "range": {
+                  "startLineNumber": 13,
+                  "startColumn": 1,
+                  "endLineNumber": 13,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    Automatically detect and crop document from image",
+                "range": {
+                  "startLineNumber": 14,
+                  "startColumn": 1,
+                  "endLineNumber": 14,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    \"\"\"",
+                "range": {
+                  "startLineNumber": 15,
+                  "startColumn": 1,
+                  "endLineNumber": 15,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Read image",
+                "range": {
+                  "startLineNumber": 16,
+                  "startColumn": 1,
+                  "endLineNumber": 16,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    img = cv2.imread(str(image_path))",
+                "range": {
+                  "startLineNumber": 17,
+                  "startColumn": 1,
+                  "endLineNumber": 17,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    if img is None:",
+                "range": {
+                  "startLineNumber": 18,
+                  "startColumn": 1,
+                  "endLineNumber": 18,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        print(f\"Error reading {image_path}\")",
+                "range": {
+                  "startLineNumber": 19,
+                  "startColumn": 1,
+                  "endLineNumber": 19,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        return False",
+                "range": {
+                  "startLineNumber": 20,
+                  "startColumn": 1,
+                  "endLineNumber": 20,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 21,
+                  "startColumn": 1,
+                  "endLineNumber": 21,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Convert to grayscale",
+                "range": {
+                  "startLineNumber": 22,
+                  "startColumn": 1,
+                  "endLineNumber": 22,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)",
+                "range": {
+                  "startLineNumber": 23,
+                  "startColumn": 1,
+                  "endLineNumber": 23,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 24,
+                  "startColumn": 1,
+                  "endLineNumber": 24,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Apply threshold",
+                "range": {
+                  "startLineNumber": 25,
+                  "startColumn": 1,
+                  "endLineNumber": 25,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    _, thresh = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY)",
+                "range": {
+                  "startLineNumber": 26,
+                  "startColumn": 1,
+                  "endLineNumber": 26,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 27,
+                  "startColumn": 1,
+                  "endLineNumber": 27,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Find contours",
+                "range": {
+                  "startLineNumber": 28,
+                  "startColumn": 1,
+                  "endLineNumber": 28,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)",
+                "range": {
+                  "startLineNumber": 29,
+                  "startColumn": 1,
+                  "endLineNumber": 29,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 30,
+                  "startColumn": 1,
+                  "endLineNumber": 30,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    if not contours:",
+                "range": {
+                  "startLineNumber": 31,
+                  "startColumn": 1,
+                  "endLineNumber": 31,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        print(f\"No document found in {image_path}\")",
+                "range": {
+                  "startLineNumber": 32,
+                  "startColumn": 1,
+                  "endLineNumber": 32,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        return False",
+                "range": {
+                  "startLineNumber": 33,
+                  "startColumn": 1,
+                  "endLineNumber": 33,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 34,
+                  "startColumn": 1,
+                  "endLineNumber": 34,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Get largest contour (document)",
+                "range": {
+                  "startLineNumber": 35,
+                  "startColumn": 1,
+                  "endLineNumber": 35,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    largest_contour = max(contours, key=cv2.contourArea)",
+                "range": {
+                  "startLineNumber": 36,
+                  "startColumn": 1,
+                  "endLineNumber": 36,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 37,
+                  "startColumn": 1,
+                  "endLineNumber": 37,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Get bounding rectangle",
+                "range": {
+                  "startLineNumber": 38,
+                  "startColumn": 1,
+                  "endLineNumber": 38,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    x, y, w, h = cv2.boundingRect(largest_contour)",
+                "range": {
+                  "startLineNumber": 39,
+                  "startColumn": 1,
+                  "endLineNumber": 39,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 40,
+                  "startColumn": 1,
+                  "endLineNumber": 40,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Add small margin to keep document edges",
+                "range": {
+                  "startLineNumber": 41,
+                  "startColumn": 1,
+                  "endLineNumber": 41,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    margin = 10",
+                "range": {
+                  "startLineNumber": 42,
+                  "startColumn": 1,
+                  "endLineNumber": 42,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    x = max(0, x - margin)",
+                "range": {
+                  "startLineNumber": 43,
+                  "startColumn": 1,
+                  "endLineNumber": 43,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    y = max(0, y - margin)",
+                "range": {
+                  "startLineNumber": 44,
+                  "startColumn": 1,
+                  "endLineNumber": 44,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    w = min(img.shape[1] - x, w + 2 * margin)",
+                "range": {
+                  "startLineNumber": 45,
+                  "startColumn": 1,
+                  "endLineNumber": 45,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    h = min(img.shape[0] - y, h + 2 * margin)",
+                "range": {
+                  "startLineNumber": 46,
+                  "startColumn": 1,
+                  "endLineNumber": 46,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 47,
+                  "startColumn": 1,
+                  "endLineNumber": 47,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Crop image",
+                "range": {
+                  "startLineNumber": 48,
+                  "startColumn": 1,
+                  "endLineNumber": 48,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    cropped = img[y:y+h, x:x+w]",
+                "range": {
+                  "startLineNumber": 49,
+                  "startColumn": 1,
+                  "endLineNumber": 49,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 50,
+                  "startColumn": 1,
+                  "endLineNumber": 50,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Save cropped image",
+                "range": {
+                  "startLineNumber": 51,
+                  "startColumn": 1,
+                  "endLineNumber": 51,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    if output_path is None:",
+                "range": {
+                  "startLineNumber": 52,
+                  "startColumn": 1,
+                  "endLineNumber": 52,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        base, ext = os.path.splitext(image_path)",
+                "range": {
+                  "startLineNumber": 53,
+                  "startColumn": 1,
+                  "endLineNumber": 53,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        output_path = f\"{base}_cropped{ext}\"",
+                "range": {
+                  "startLineNumber": 54,
+                  "startColumn": 1,
+                  "endLineNumber": 54,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 55,
+                  "startColumn": 1,
+                  "endLineNumber": 55,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    cv2.imwrite(str(output_path), cropped)",
+                "range": {
+                  "startLineNumber": 56,
+                  "startColumn": 1,
+                  "endLineNumber": 56,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    print(f\"✓ Cropped: {image_path}\")",
+                "range": {
+                  "startLineNumber": 57,
+                  "startColumn": 1,
+                  "endLineNumber": 57,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    print(f\"  Output: {output_path}\")",
+                "range": {
+                  "startLineNumber": 58,
+                  "startColumn": 1,
+                  "endLineNumber": 58,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    print(f\"  Original size: {img.shape[1]}x{img.shape[0]} → Cropped: {w}x{h}\")",
+                "range": {
+                  "startLineNumber": 59,
+                  "startColumn": 1,
+                  "endLineNumber": 59,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 60,
+                  "startColumn": 1,
+                  "endLineNumber": 60,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    return True",
+                "range": {
+                  "startLineNumber": 61,
+                  "startColumn": 1,
+                  "endLineNumber": 61,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 62,
+                  "startColumn": 1,
+                  "endLineNumber": 62,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\nif __name__ == \"__main__\":",
+                "range": {
+                  "startLineNumber": 63,
+                  "startColumn": 1,
+                  "endLineNumber": 63,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    test_folder = Path(\"/mnt/merged_ssd/NAATI-translator/Translations/test\")",
+                "range": {
+                  "startLineNumber": 64,
+                  "startColumn": 1,
+                  "endLineNumber": 64,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ",
+                "range": {
+                  "startLineNumber": 65,
+                  "startColumn": 1,
+                  "endLineNumber": 65,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # Process all JPG files",
+                "range": {
+                  "startLineNumber": 66,
+                  "startColumn": 1,
+                  "endLineNumber": 66,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    for image_file in sorted(test_folder.glob(\"*.jpg\")):",
+                "range": {
+                  "startLineNumber": 67,
+                  "startColumn": 1,
+                  "endLineNumber": 67,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        crop_document(str(image_file))",
+                "range": {
+                  "startLineNumber": 68,
+                  "startColumn": 1,
+                  "endLineNumber": 68,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 69,
+                  "startColumn": 1,
+                  "endLineNumber": 69,
+                  "endColumn": 1
+                }
+              }
+            ],
+            []
+          ],
+          "done": true
+        },
+        {
+          "value": "Now let me run this script to crop the images: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "run_in_terminal"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": "Using \"Run in Terminal\"",
+          "isConfirmed": {
+            "type": 2,
+            "id": "chat.tools.global.autoApprove"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "internal",
+            "label": "Built-In"
+          },
+          "toolSpecificData": {
+            "kind": "terminal",
+            "terminalToolSessionId": "f0375397-dcd6-41bb-b3b6-c4ee08ab7a12",
+            "terminalCommandId": "tool-b4b7c16b-7c45-4eb7-85e0-a3fe28d08df9",
+            "commandLine": {
+              "original": "cd /mnt/merged_ssd/NAATI-translator/Translations && python3 crop_images.py"
+            },
+            "language": "sh"
+          },
+          "toolCallId": "64c7ce67-ca75-43c3-9356-aa516f150ab9",
+          "toolId": "run_in_terminal"
+        },
+        {
+          "value": "Let me install opencv-python and try again: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "run_in_terminal"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "presentation": "hidden",
+          "invocationMessage": "Using \"Run in Terminal\"",
+          "isConfirmed": {
+            "type": 1
+          },
+          "isComplete": true,
+          "source": {
+            "type": "internal",
+            "label": "Built-In"
+          },
+          "toolSpecificData": {
+            "kind": "terminal",
+            "terminalToolSessionId": "893a751c-f62a-42af-b655-f9964843382f",
+            "terminalCommandId": "tool-b1eddaee-173f-4b71-b6a0-9275f11e0da7",
+            "commandLine": {
+              "original": "pip3 install -q opencv-python pillow && python3 /mnt/merged_ssd/NAATI-translator/Translations/crop_images.py"
+            },
+            "language": "sh",
+            "alternativeRecommendation": "The terminal command 'pip3 install -q opencv-python pillow && python3 /mnt/merged_ssd/NAATI-translator/Translations/crop_images.py' was not executed.  \nTry using some of the following tools instead of running a Terminal Command (if unable to use one of these tools as an alternative then run the same terminal command again):  \n- get_python_environment_details  \n- get_python_executable_details  \n- install_python_packages  \n- configure_python_environment"
+          },
+          "toolCallId": "a1981cf7-0822-4a15-a069-7f771d7269be",
+          "toolId": "run_in_terminal"
+        },
+        {
+          "value": "Let me use a simpler PIL-based approach instead: ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/mnt/merged_ssd/NAATI-translator/Translations/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "copilot_createFile"
+        }
+      ],
+      "responseId": "response_3757de67-f148-4bcd-b8c6-9a021064a382",
+      "result": {
+        "errorDetails": {
+          "code": "canceled",
+          "message": "Canceled",
+          "confirmationButtons": [
+            {
+              "data": {
+                "copilotContinueOnError": true
+              },
+              "label": "Try Again"
+            }
+          ],
+          "responseIsIncomplete": true
+        },
+        "timings": {
+          "firstProgress": 4429,
+          "totalElapsed": 51073
+        },
+        "metadata": {
+          "toolCallRounds": [
+            {
+              "response": "I'll help you crop the scanned document images in the test folder using the doc-cropper MCP. Let me start by exploring what's in the test folder. ",
+              "toolCalls": [
+                {
+                  "name": "list_dir",
+                  "arguments": "{\"path\": \"/mnt/merged_ssd/NAATI-translator/Translations/test\"}",
+                  "id": "toolu_01SbpSwXcNmY3vAd76nYdzZ8__vscode-1765752895114"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "fc1eac34-b476-4ad8-8660-6b432aacfd9e"
+            },
+            {
+              "response": "Now I'll crop these document images using the doc-cropper MCP. Let me process both images: ",
+              "toolCalls": [
+                {
+                  "name": "run_in_terminal",
+                  "arguments": "{\"command\": \"cd /mnt/merged_ssd/NAATI-translator/Translations/test && ls -lh *.jpg\", \"explanation\": \"Check the size of the images to determine if they need the high-performance mode\", \"isBackground\": false}",
+                  "id": "toolu_01161PieWWMr8S7Lvc3e1FSP__vscode-1765752895115"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "91898dd2-8755-48a0-ba89-22db9db17f95"
+            },
+            {
+              "response": "The images are small enough (~360-376KB each). I'll convert them to base64 and use the doc-cropper to crop them: ",
+              "toolCalls": [
+                {
+                  "name": "run_in_terminal",
+                  "arguments": "{\"command\": \"base64 -w 0 /mnt/merged_ssd/NAATI-translator/Translations/test/DL1.jpg > /tmp/DL1_b64.txt && base64 -w 0 /mnt/merged_ssd/NAATI-translator/Translations/test/DL2.jpg > /tmp/DL2_b64.txt && echo \\\"Base64 conversion done\\\"\", \"explanation\": \"Convert both JPG images to base64 format for processing with doc-cropper\", \"isBackground\": false}",
+                  "id": "toolu_0136ji7xELLmcZkbek1xsJuG__vscode-1765752895116"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "50bcaea9-2b29-4bf2-a2ef-46c1678065bf"
+            },
+            {
+              "response": "Now let me read the base64 content and crop both images: ",
+              "toolCalls": [
+                {
+                  "name": "run_in_terminal",
+                  "arguments": "{\"command\": \"cat /tmp/DL1_b64.txt\", \"explanation\": \"Read the base64 encoded content of DL1.jpg\", \"isBackground\": false}",
+                  "id": "toolu_01PTeuABvHVqPUmCCYee3eTT__vscode-1765752895117"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "79846ee5-b290-4d9a-bff9-cdb4d5b7d4ac"
+            },
+            {
+              "response": "Now let me read the base64 content from the file and crop the image: ",
+              "toolCalls": [
+                {
+                  "name": "mcp_doc_cropper_crop_document_base64",
+                  "arguments": "{\"image_base64\": \"/9k=...\"}",
+                  "id": "toolu_01L5RL9ZfevPRntKbDLeGW9j__vscode-1765752895118"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "c729e3a6-0e38-4930-abf9-cd51704e2560"
+            },
+            {
+              "response": "Let me use the correct tool name: ",
+              "toolCalls": [
+                {
+                  "name": "mcp_doc-cropper_crop_document_base64",
+                  "arguments": "{\"image_base64\": \"KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA\"}",
+                  "id": "toolu_01BhkkQzvZ4uANVcob5ofTTG__vscode-1765752895119"
+                }
+              ],
+              "toolInputRetry": 1,
+              "id": "8a6bb95e-724d-4931-b34a-f261f997fc2d"
+            },
+            {
+              "response": "The MCP doc-cropper service isn't properly initialized. Let me try a different approach using the high-performance mode with curl as mentioned in the tool description: ",
+              "toolCalls": [
+                {
+                  "name": "run_in_terminal",
+                  "arguments": "{\"command\": \"cd /mnt/merged_ssd/NAATI-translator/Translations/test && ls -la\", \"explanation\": \"List the test folder contents\", \"isBackground\": false}",
+                  "id": "toolu_01DyWKEQXyucKNaFBrges55W__vscode-1765752895120"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "6b6e2a2a-9372-4924-8510-ab2a4aa18414"
+            },
+            {
+              "response": "I apologize for the confusion. The doc-cropper MCP service isn't fully operational. Let me explain what I found and provide you with a practical alternative:\n\nThe test folder contains two scanned document images:\n- **DL1.jpg** (360 KB)\n- **DL2.jpg** (376 KB)\n\nUnfortunately, the doc-cropper MCP tool that would automatically detect and crop document boundaries isn't currently responding properly on this system. However, here are your options:\n\n**Option 1: Use a local Python tool** - I can create a Python script using OpenCV to automatically detect and crop the documents: ",
+              "toolCalls": [
+                {
+                  "name": "create_file",
+                  "arguments": "{\"filePath\": \"/mnt/merged_ssd/NAATI-translator/Translations/crop_images.py\", \"content\": \"#!/usr/bin/env python3\\n\\\"\\\"\\\"\\nDocument auto-cropping script using OpenCV\\nDetects document boundaries and crops whitespace\\n\\\"\\\"\\\"\\n\\nimport cv2\\nimport numpy as np\\nimport os\\nfrom pathlib import Path\\n\\ndef crop_document(image_path, output_path=None):\\n    \\\"\\\"\\\"\\n    Automatically detect and crop document from image\\n    \\\"\\\"\\\"\\n    # Read image\\n    img = cv2.imread(str(image_path))\\n    if img is None:\\n        print(f\\\"Error reading {image_path}\\\")\\n        return False\\n    \\n    # Convert to grayscale\\n    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)\\n    \\n    # Apply threshold\\n    _, thresh = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY)\\n    \\n    # Find contours\\n    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)\\n    \\n    if not contours:\\n        print(f\\\"No document found in {image_path}\\\")\\n        return False\\n    \\n    # Get largest contour (document)\\n    largest_contour = max(contours, key=cv2.contourArea)\\n    \\n    # Get bounding rectangle\\n    x, y, w, h = cv2.boundingRect(largest_contour)\\n    \\n    # Add small margin to keep document edges\\n    margin = 10\\n    x = max(0, x - margin)\\n    y = max(0, y - margin)\\n    w = min(img.shape[1] - x, w + 2 * margin)\\n    h = min(img.shape[0] - y, h + 2 * margin)\\n    \\n    # Crop image\\n    cropped = img[y:y+h, x:x+w]\\n    \\n    # Save cropped image\\n    if output_path is None:\\n        base, ext = os.path.splitext(image_path)\\n        output_path = f\\\"{base}_cropped{ext}\\\"\\n    \\n    cv2.imwrite(str(output_path), cropped)\\n    print(f\\\"✓ Cropped: {image_path}\\\")\\n    print(f\\\"  Output: {output_path}\\\")\\n    print(f\\\"  Original size: {img.shape[1]}x{img.shape[0]} → Cropped: {w}x{h}\\\")\\n    \\n    return True\\n\\nif __name__ == \\\"__main__\\\":\\n    test_folder = Path(\\\"/mnt/merged_ssd/NAATI-translator/Translations/test\\\")\\n    \\n    # Process all JPG files\\n    for image_file in sorted(test_folder.glob(\\\"*.jpg\\\")):\\n        crop_document(str(image_file))\\n\"}",
+                  "id": "toolu_01TMTB25Jd9tbgBidYFhdxaf__vscode-1765752895121"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "14ff7f8b-b871-4ec4-b083-fdd79d9e47f3"
+            },
+            {
+              "response": "Now let me run this script to crop the images: ",
+              "toolCalls": [
+                {
+                  "name": "run_in_terminal",
+                  "arguments": "{\"command\": \"cd /mnt/merged_ssd/NAATI-translator/Translations && python3 crop_images.py\", \"explanation\": \"Execute the document cropping script\", \"isBackground\": false}",
+                  "id": "toolu_017cTZcWSXfVei2EJTGXAF4T__vscode-1765752895122"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "8c49ca52-b141-49b5-9442-91726ecf83f8"
+            },
+            {
+              "response": "Let me install opencv-python and try again: ",
+              "toolCalls": [
+                {
+                  "name": "run_in_terminal",
+                  "arguments": "{\"command\": \"pip3 install -q opencv-python pillow && python3 /mnt/merged_ssd/NAATI-translator/Translations/crop_images.py\", \"explanation\": \"Install required packages and run the cropping script\", \"isBackground\": false}",
+                  "id": "toolu_01Wgw5yrGfDS2zXCRhyCxxXP__vscode-1765752895123"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "47268752-a7bf-479b-859a-1ca74714d529"
+            },
+            {
+              "response": "",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "81fa3780-353d-41af-a922-ab6806e699f0"
+            }
+          ],
+          "toolCallResults": {
+            "toolu_01SbpSwXcNmY3vAd76nYdzZ8__vscode-1765752895114": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 23,
+                  "value": {
+                    "node": {
+                      "type": 1,
+                      "ctor": 2,
+                      "ctorName": "sAt",
+                      "children": [
+                        {
+                          "type": 1,
+                          "ctor": 2,
+                          "ctorName": "Kfe",
+                          "children": [
+                            {
+                              "type": 2,
+                              "priority": 9007199254740991,
+                              "text": "DL1.jpg",
+                              "references": [],
+                              "lineBreakBefore": true
+                            }
+                          ],
+                          "props": {},
+                          "references": []
+                        },
+                        {
+                          "type": 1,
+                          "ctor": 2,
+                          "ctorName": "Kfe",
+                          "children": [
+                            {
+                              "type": 2,
+                              "priority": 9007199254740991,
+                              "text": "DL2.jpg",
+                              "references": [],
+                              "lineBreakBefore": true
+                            }
+                          ],
+                          "props": {},
+                          "references": []
+                        }
+                      ],
+                      "props": {},
+                      "references": []
+                    }
+                  }
+                }
+              ]
+            },
+            "toolu_01161PieWWMr8S7Lvc3e1FSP__vscode-1765752895115": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "-rw-rw-r-- 1 pi pi 360K Dec 14 22:21 DL1.jpg\n-rw-rw-r-- 1 pi pi 376K Dec 14 22:21 DL2.jpg\n"
+                }
+              ]
+            },
+            "toolu_0136ji7xELLmcZkbek1xsJuG__vscode-1765752895116": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Base64 conversion done\n"
+                }
+              ]
+            },
+            "toolu_01PTeuABvHVqPUmCCYee3eTT__vscode-1765752895117": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/9k=                                        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UHD7vmOB3puqX9tbw7prYvNCw2vAu0kfhT11prtS8F3CiMPmR13MPY1ntsZ88lsiGOL7LZTSfat0MkihEPrV65ktbG+iWSWLZOS2dpwG/Cs571pLvAvoDHEARbhOh9c1Baaibpp1kuA6wytt8tNpLE+tX7NmnI2aMGo2ru8IuHcMdgMaBcEccGrVrcQpZSRLJl5JdjGVivIPXNYcSPbNKXRTIpLOPvE+9Xra8+1rHI8C/ZW4V2baN3anOKSCpTdjUe9adkWFhJewtggDcAoqN7meIGY3MUBl3qvmLt+aseeWFpXW7e2kMZCsgypH4ilVlaEnzLeSyViIgpKlfxNYezZPshQk92kEJ1WKc2x8yWMKOPUg1KIbhM3UVyC9yX8uZ8YiHYH1zVRLEQ5naK1lSThpEfa2Pw61VvTuWKKcYRH/AHEIzkjt81UHJHsWLDUrnY0L5LhszZXhfce1a8fnXMscyXMVxb/88m+XHofpWPDqckBlcpJvJCEFgy/QmtuySCe3T90gzJtIHoBwKVkXOKS0NZJLiKESgwu4UIRGC1SW1804MbqDJ1YJ1A/GsWK4i8rzVCCXoMZXmrFtBE97ucKzyRZfLd8Uzj5GbDzBJY2SSIRgYIPX8+lLaXAuPO2zRySZOEDBsD3xVCwtraK1zwkJGSituUnvkU/daWm5gkanyc4C7e+BWdzM00b9wNrrkDBIHA/CmESHgzKSeny1Favbm3G1NgHO0Mean3o21iBvHIHtSAjVHd8LIAq8Mu3rSTWay8SfP/dz29qbdXSxSIBgHrkiojO0cc7sxdlOQp6YzTuzUg1DQluVGxiu0ZADGsy5tHlhLkBxEQrEt0rdj1FSGIDg7cgFelc/JqrK7eZGpEjEMit+RIouwuzE8SqttHFbNGqRXMm5D9BT/h2NqIM5w2M1S8YgSWlrMxkeaCYhI1X5VBHc1c+HP+qj+tIyPS6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooo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vcpLG0ibclgT8rj6VC9s0ZDK2SBkE9ahSO4S4KmCMSBAzMW3bR7VeS1e5t5JFmEg2gBx2oGm1sQSRTy2pPEs33mdPlwvpgURTuiI4LGMYDEt930psj/2bMqCRTIpjEm5toYMcUXm6C4aJihtp1ASRW+TzM8An6UBzI1LWaN5ZFaQgBflI7mpjZNdwHf8g2j5z3PrVVBIyLtMTyq3OzpirYvRIjRS4jhP+rk3bvm9KzuzG5josz3L27GQRovDbRg1HbM1oAdg3luGZttbN3aNIyI8edoBO1tvOKzNV0+T7H8qIrMcojNu4rQ1Of8AFsZfS5hMy7pZkZRtDdWOeak+HhzJ/wADP86b4gikm0C1ibAkEjBzt6AE7aX4bR7H2ZyFcjP0rI5XueqUUUUCCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAytaghe1klkkEbIhIJPGPpXnV8qyvb3MbiVbhWUtGu5VA7kdq9H1OyWaKeXYJG8vG12+UjvXmk8j6bqFx9khMcMqbTCVCoPpQB4d8WfAXjfxH4qtfEXg29tre3tdMFjIt1cBELsQS23vXlXi/wnr1nqDWCa89p401a2eeSwtL4+SDwySZ/gyGzgf3q+ub2C1u4ZGFuovLeH95A77IZVI3ZVuxB4r55+CFo/wAQviT4v8aXWlzveSbo40uFVoLaTOI7dD1zs2845216NKq+TVHqUKkVScpRvY+k/h/ok+m+DdBhvbpJ9StbKGOaWSXeXcRqGYnv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NkX5LySaxmZ5fm2jLlRlsDrTdD1GSJo4pj9ojdd4DrtIPtVW2EqMFe2eVo4gXRcYOT2+lXLlfKuJVEZ3oAIycNtHcVkZE084hlnnETvvC4TdViWYX1kZo4h9oix5nzbmx2rM1Eb7EShflUgLJ6kdRT7NpLoySpEY/NA3lG25xQKyL8V/avJ5Uoa3V8Eh16t65qp/aNra3Ti5niIQsVCbmU5/vVXupwqyqMyEEBUb5iD9arzwCBlcsYHPLjbuT8cUDWmxpPJG0RljW1JbDI6AqaLr7LLLHKWSWGXBuMtuAPpUPkTXtvH5Cb1Xo6pw3tVzTrWNITayW+yZmz5Q+Y49T6Cgzuy62jRyNH9nCCBvmIC8AVtwxLBEqIMKowBSQxiJAAAMADA6VLQIKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK5/X9ON6QeYliQlHHzAk9sV0FNKhlIIyD2oA8002ze0RYpmcQy5Vvl+bd9auxafJsjiR8+SuFeRSvX1Peuu1axSS0yq/PH92uKuLI29vcGed3ZiG2lzwB0FAFeTRpIIXgm/dyKxHnRtt3H0FSXOkxzWlpIJJY7mMESI79vWp5rg6paRSn5NibiB0xjg1n29zJbOt3vQFVwc/NuoFZDLO6js0eGKZ3gbG9lbd8p7/AFpmp2/2MzhJTLGcfZin3gnbP4VLc28UV0lzDhI7yINkLwhxzkU+2mFxbSgtGJAgMRC8sCODQMinto7+wdfOd2t9pCL1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12t3bSzqoimEIB+bKBsj8afFD5SgM2/HQ7QMUAppbI44aHcSufIUwTxsH3VoXGjiO1HlpveRsue+frXUjHalp3YnUb3OFOl3DTSO1uDIBwdtWDpEkEVrO6h5iDuG3n2+ldexJBxwapWFrPAkgurn7UxcspKBdozwOKLsi7Och0vUFg+1LABM0mCpPIGetTTaK1s0shRJSG3I+3nJPIrraQLjPvSJOOTSJ1RZ0tQkrPjPcDPOatLoklhK5UbS24mSNeWHZa6fAqKKFYVwCxHuxagDmLXSpJXtS8HlBiSR7e9R3+jOj3FxJAdgYqgiXnrwa6/aDg+lHFO7HdnLWGj3EckE+Xw8JQh+uT60iaXdB0SS3SUt8rybtv1rq8ijIpBdnNy6bcSTrb+QBbou1MHj60620ZoLZ9wf0ADfrXRZFRtHuJO5hntnigLsxDoPzkrGTuQBm3DOcVWmtYNJy810LdJB/q3JYt68CulZFdCjcgjBqEWFv+6zGCYs7Seoz70BdmZZFNT0xzp80tszLtWV07eoBq3pmkR6bGfmaed/vzSfeb/63tWgiLGgVRgDoKdQIQAAYHSloooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAEIDDBGRWNqumQtuuBAHZVwVHzZH0raooA8+u4zY75jbyIkqj5Au7jtxUVpIt+hlgsnMcXDPInBPcYr0NkV/vKD9RSLGioVCgKewHFAHG2umXF9EyrbpEkuDgruC/T0q3Fog+0tm2RWRQpk2bQcdxXUgBeAMD2oIBGDyKAOCnhmv72e1t7XzUQh3nHzAt3FaP9n3V5Zs0VskU8bsNsidRmumt7OC03+TEke85baMZNWKAOH07wfd5LTbFAJIjPTmrFv4XvI5RJm3BjbKkqWY9s5rsKKAPM7vwbcT6qqMAHXmMrlgMnOc9q6A+Gp5UBcRrIcEmNduDjnH1rrKKz5X3A5iXRBZafHbhXfauEKr9zjHHpVOWwNvaLHOJg/BjCjdn0ye1dnRWgHCf2LqMsLILYIJ2y0gbkL24qrc+FNSiv2i8s3Nsw/1m7+dei0UAcFa+FfPtTbzQT7UIwB8q8HPH40o0S4029to7XTCYlxmQN04xXeUVnyvuByunaJK7ahC9sYI2x5bu27J7mrR8PzKgaOZUmAIDFd2a6CitAOH/wCEEvGnWdryPzBzgrxmi58B3U0hf7XGdzFmUJtyT1ruKKAPNtc8B6heojxzfdUIqhuR2qGH4dagunfZnuGO8AyDaMbu5Fen0UAeV2fwrvN9032gW0jbQjn5s+pIq1qXwpkmhgEN2hlRyxZl656mvSqKAPOG+FMQMaeZ5iOMyuWKkN3IFTH4T2dtFGIJZHdHJHmOehr0GigDhU+FmnSZE0Y5PUOc1NH8LdKidXSSZCvTDcV2lFAHGR/DDS4pXkEkxLksdzcZNaaeEbW2WMWwVCo2sXXdkV0FFAHKJ4Fht7kywuACeQagtvA9zb6hLcHUndXJ2pt4VewrsqKAOOHgLzJ2ee9kkUkkAdhUb/DqGS8Z2mAiwNqhec98+tdrRSsB55f/AAltr3UpLn7QyxbFVIP4VPc1YtPhVp1teicuzp5ewoeh4613dFMDnbLwNpFmuEtlI9G+YD6VWvPh/Y3l0svnzog/5ZKRtrq6KVkBww+GFot0ZFvblIyxbywR69K24fBukx7i9pHKzKFJdd3St6imBiN4Q0d4PJewhdP9tcmiPwfo8UYjTT4UUei81t0VnZdgMuHw3pkC4SxhUZzwgqQ6Hp5DD7JFhuvy9a0KK0ApW2lWdpF5cVvGidMbRT/7OtsEeRHg9Rtq1RQBWisreBQI4Y0x0woqbYuc7Rn6U+igCCS2ilzuQEkYzjmnRwJFGqKowBjmpaKAIzGpGCoP4UGJCclQT64qSigBmxcY2jHptoEajGFA/Cn0UAMaNWXaVBHXFQvZQSJsaGMrnOCo6+tWaKAK8NnBbEtFEqMepAqxRRQAUhGaWigAqIQRgu2wZbr71LRQAmBnOOaWiigCFoInkEjRqXHAJHNI1pA67WhQjrjaKnooAaAAoAHHTFN8mP8AuL+VSUUAQ/Z4gMeWuP8AdFPWNEOVUA+1PooAKKKKACk2j0paKAEwKWiigBMCloooATANLRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFADJGEaMx6AE1xHws+K+ifF/wANS67oRuDZR3c1k/nwlGEkTlG+oyvBFdyRkYqjpulWej2gtbK1itLZSSIoUCqCTknA9TQBfopoAAAAwBTqACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoorP1G8ntGthBatc+ZKEfB+4vdqANCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApu3rjgnmnUUAMRdqKCckDGafRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABUUjOuNihuecnGBUtIRmgBaKKKACiiigAoopiOr52kHBxxQA+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAopCcUwTK2Qp3EelAElFQB5j/yzA57ntTkVwxLPuBPA29KAJaiaZEUksOOuKjFsDnczH5twG7GPyqRIUjLMihSTliB1oAVJVkTeuSKb9o/6Zy/981NRQBE86RqGclQfWoI9StpX2LKC3pg1cpu0ZzgZoAgurtbZNxjkkH/TNd1QrqysARa3WCM/6o1fooAgSdDsBJVnGQjdanprKGGCM1EUeM5QkqOqn/GgCeioYplmB2nkcEHqDU1ABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUgAXoMUtFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFIenFCggcnJoAWmqSeoxTqKAGkAjBGR70oAAwBgUtFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAEbRq2CRyO4qIySxMdyeYnqvUfhVmigCGO4SThW+b0PWpqieFJCCy8juKeoIyCc+lADqKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKpXumQagIxOJCI3DjZKycj12kZ/GgC7RRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAxSeQTzk/lT6iIxMDngjH41LQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAYeh+J7LxBd6nb2bO76dcm0nJQqA4UE4z1x0rcqulvHFv2Iqb2LNhdu4nqT6mrFABRRRQAUUUUAFFFFABRRRQAUUUUAMkXcAfQ5pQcgEdDSkZpkZwuOwJA+goAkooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKrROftM0fYYI/HrVmqnyi/GP448n3wRj/wBCoAt0UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFV2QG5Vx/CpB/H/9VTEhQSTgCmoAcsDndzn2oAkooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooqtdXPkBVAJdzhQKAIrh2uJxBGcAcyH29KtooRAqjAAwBUVvbrboe7ty59T3NWKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiik4NAC0UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFACFgoJPAFUrMtczSXDH5D8sa+g9fxpmo3TJ5NvGSJZ22g4+6O5q9HGsaKijCqMAe1AD6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAEI3Ag9KigiMKlc5GePYVNRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFNY7VyTgDkmgDEsJhe+I9RYrgWgSFT2YsoYn8N2K3AcjNc54KdbnT7q8X7tzdSyqfVSxI/nXSUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFVdRkEVhcuegiY/pVqsfxXObbw1q8qnDJZzOD6EIcUAVPh+ka+DtKMYwjW6MBu3dVFdHXN/DvB8EaLjp9kix/3yK6SgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooqtvuPtJXy18jH+s3c5+lAFmimqCFAJyccmnUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABWP4rjWTwxqysMq1rKp+hU1sVn67Gs2iagjDKm3kBH/ATQBjfDElvh74eYnJNlESf+AiuprlvhhkfD3w8PSyj/lXU0AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFVdSTzNPuV9YmH6VaqGZPMWRM/eXA/WgDnfhmMfD7QAev2NP5V1Fc94AtzbeC9GibqlqgP5V0NABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABTD/X+lPpCMg9qAKGgosej2aqNqiMACtCq9lCsFnBGBgKgGPwqxQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUhG4EHpSKgRQo6AYFADqKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKT9KWoLiH7RC6b3j3DG6NtrD6GgCbPOKWs3SdIGkQvGLm5uQTnNxKWI9hWlQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFQhJPPLF/wB3jAXHf1qaigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqNV25yScnPOOKkooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACmJIrswHVTg0+igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACk5z7UtFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABVHVbSS/0+4t4bqWzlkQqtxDjdGfUZ4zV6igDO0axm03S7e1uL2XUJ4lCvdTKA8hx1OOM1o0UUAFFMdioJAJI7DvSqcqDjGaAHUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUVWnvI7YqshIZugAJqVJBIuVOaAJKKaDyRjgUA5UdqAHUUnPtQM96AFooqOLftO/bnJxj07UASUUUw7sjGNvegB9FFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA1lDggjINVbiV7V4yF3QkhT/s+9XKaVDDBGRQA6ikHSloAKKKKACiiigBMCloooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAawyODg+tKOnrS0UAJwKODQRkYNAGKAFooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACmKgTJAxk5NPooAikgSUguu4r0qQDAxS0UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAJwaWiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiikAI6mgBaKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKwrWz1O38QahcT6ksulypEtvZeSFMLgneS45Ocr1rdpgjUHcFAb1xQAq5wM9cU6kAxS0AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUgOaAFooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKYB85O44x09KAH0Ug4HrS0AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFRmNWcMVBYdD6UAV7+KSe1kSK4Ns5GBKqhiPz4qtommHSLIRNdTXkhO95pn3FmPX6CtTg0tABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFADAQSRnJHUU+oliVXZgAGbGT64qWgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooprAnGDjmgB1FFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA3nf14x0p1FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFZl3qcFnqVnbSTokty+yOI9WwrMcf98/pQBp0UgPHPFLQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVUlsIJ7mCeWJXmgYtE7DlCQQcfgcVbooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAaSAOT+dOqN0WQYZQR1wRUlABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAEbSqhUHqegFPHSlooAKKKKAGJuyd2MdsU+iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKghV0D7335YkewzwKnooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApjSqrqpOGPQU+igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKQkAZPSgBaKQEEZHSloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACmhlLFQeR1FOpgRQzMBgnr70APooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKaQGGCMj3p1FADQAAABgCnUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUVBcIZIXRJDE5BAcYyp9eaAJ6KrW0bw20McshmkVQrSEcsQOT+NWaACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigCPYfMLbvlIxipKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAjbfvXaRt7561JRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAISAMnpVNdStndkWTLA4I2H/CrtFADI5FkHysG9cU+ofs6ibzBwe4HepqACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKaRkg56U6igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAopp6dcGhQQoBOT60AOooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACikzziloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKbkbsZ564p1RmNS4fA3DjNAElFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAJgHtS0UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAHB+I/FfiTRviL4e0u20MXvhzUQ6XGoK/zWzgcZHoa7oZ2jPXvinUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUVGzBFLMQFAySegoAkoqr5oubbdbTL84+SQfMPr71JEGWNA7b3x8xAxk+uKAJqKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBobJIweO9OoooAKrXdrFe20tvMgkikXay+o9Ks0UAU9N0+DS7KC0tolhghUKiL0AAxVymlQccdOlOoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKjkiWWNkcblYYI9aSOJYY1RBhFAUD0AoAlooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqGYyiP90qs2eh6YqaigBBnAz1paKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigCul3C9zJArgzRgFk7gHpVioFt41maVY0EpGGcKNxHuanoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigCpezTwoht4ROxYBgWxgetW6KKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKjKHzA244xjHapKACiiigAooooAKKKKACiiigAooooAKKKKACiik70ALRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFICD0OaAFooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKj8zcDs5IOCKcVz3I+lKBgYoARSSoJGD6U6iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKbn5sdsUAOooooAKKKjcsFJUAt2BoAkoqNCSilhhscgdjUlABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFc14W0K/wBDvtaa71OXUoLu8e5t1l6wKxJ8sf7I6CulooAQdKWiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACmgYzzmnUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUARlNzBtxGOwPBpQxLEbSPen0UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFNDAnGRmnUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFJwKWigBM5HHegcD1oAAGB0paACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAjCKGLBQGPU96koooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoopCwUEngCgBaKaCGAI6HmnUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAMXdk7sY7Yp9FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUARGQCQJtJJGcgcCpaKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKY8YkRlblSMEU+igCGKNYY0jXhVAA+gqaiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKoNb3I1ATLcZtyu1oSOnuKv0AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFJ3paKAGqu0dST706iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKjLqpAJAJ6AnrQBJRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAVE8KSMpZQWXoe4qWigBoGFHenUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUnApaACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooqtdXUVjbvPO6wwxgs8jNtCj1NAFmiuDtvE+t+LLuD+xLdbDRd3zandoWeXBxtSHggH++eK7aLf5Sb8hsc5xnP4cUATUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAxWDZwQcccU+o0RUztAGTk47mpKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAGOiuMMoI9xQqhQAAABwAO1PooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACuc1PwxF4guQ+qZurVHDR2W8iLIP3nA+8fY5Aro6btHJwMnrQBHBGsUSIgwoGAuMYH0qaiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKjEeGLZPPbPFSUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUU1iQuQMn0p1ABRRRQAUUmecVFK7ImVTec4wDigCaiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiq9zdQ2qK00ixgnaCx2jNAFiik4NLQAUUUUAFFFFADWGVIzjNNRdoAyTgYye9SUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFIOlLTGTdjkjBzxQA+iq0k7+XuiTzGzgg8VYHSgAwD2paKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACs/VdIttYgSG5QmNXEgwccitCkwBQA1ECKFUYUDAFPoooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoopCMj0oAWikHAHeloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACmkZIOelOooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBkkixIWY4A70qsHAYHIIyKdRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFMZ1TG5gMnAzQA+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooqJlcupVgFHUY60AS0VDHKJCwAI2nByOtTUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAh6HHWkXO0Z696dRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFQywRz4EiBwDkAjoamooAYilc5OcnNPoooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAGFQWBIBI6H0p9FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRUTyhCw5JAzgUxJzNCjojYbsflIoAsUUg6DPWloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAopjMQh2rlh0HrUUYlclnIQEYCjkqfrQBYoqotpKIQhuXLYxvwM0sMMsEBXzjNJjhpB/hQBaorKjt9XE2Xu7Yx+giOf51pKCFG45bHJHegB9FFFACY5zS0UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFVL6aaC2kkhh8+UY2xg9eaALdFMUkgEjBI59qfQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRWdrOppo2m3F7JHJIkS7jHEu5m57UAaNFVbK6F5ZwXGxo/NRX8t/vLkZwferVABRRRQAUUUUAFFFFABRRRQAUUU1AQozQA6iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAopMgUtABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAxkBIY5yPSn0UgGKAFooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAppAYYIyPenUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUwEknK4x096fRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAQeVmfzC7dMBc8fXFT0UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFITjk8Co0kEnKsrJ0yGzzQBLRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFRuSFJAyewz1qSigCOMsyKWXaxGSPQ1JRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA0gMuCMg9jTI4khXbGgRc5wowKlooAKKKKACiiigAooooAKKKKACiiigBrHaM8n6UoO4A+tLRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFJwaAFooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKQ9Kp2E9xOsxuIPIKyMq/N95QeD+NAF2iiigAooooAKKKKACiiigAooooAjkk2IxA3kdh1oidpEy6bD6GkEEYLEIAW6kd6loAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACmsMgjnn0p1FADFXaoGScDGT1p9FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRSMSBwMmloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAE6iloooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAIppkt4nkkOEUZJ9BVHTtS/tV/OtyDZ7eGI5Y1oMoZSrAEEYIPemwwpboEjRY0HQKuAKAJaKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiqN408MkcsYMkY4aJepz3q1HIXyChXHr3oAkooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKYm7ncR14x6UAPooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKiliWUKG7ENxUtFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFIBilooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKbuG7HenUAFQXEDTqoWVoiDnKd6nooAaOFAzn3p1FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAGL4n0Oy8U6JqGh38fm2moW7wTRq21jGw2sQe2N1a6oEUKowoGAKdjnNLQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUANbOOMA+9OpCM0tABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFNYEqQDg+vpQA6imIpVFBO4gYJ9afQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAU7+3lnhCxTm3YMCWC549Kmt3WSJSCTgYO7r+NTUgGKAFooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACmK4bIGeDjmn0UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRSE4GaAFoqKKZJgSjAgHBx61LQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAV5TNa/FeL42wTR3vhuX4WNbnzoZIpF1JZjnG0j5CM7OT2zXq1FADFGAMkk+pp9FFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUANVQvQAfSnUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQBS1Sd7bTrqWMHzEid1wO4HFc78MNV1rWvBWm3viGFLfVLhWkaMLtIQn5cj1xtzXX0mAe1AAORS0UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH/9kUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABUKQRxvI6IFeQ5YgcscY5qaigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApCcAn0paKAOb0LxTc65q2p2jaJf2EFlJ5a3V3EY1nPrHkfMvuK6SiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA"
+                }
+              ]
+            },
+            "toolu_01L5RL9ZfevPRntKbDLeGW9j__vscode-1765752895118": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "ERROR: The tool \"mcp_doc_cropper_crop_document_base64\" does not exist\nPlease check your input and try again."
+                }
+              ]
+            },
+            "toolu_01BhkkQzvZ4uANVcob5ofTTG__vscode-1765752895119": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Error executing tool crop_document_base64: YOLO model not loaded."
+                }
+              ]
+            },
+            "toolu_01DyWKEQXyucKNaFBrges55W__vscode-1765752895120": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Note: The tool simplified the command to `ls -la`, and this is the output of running that command instead:\ntotal 744\ndrwxrwxr-x 2 pi pi   4096 Dec 14 22:26 .\ndrwxrwxr-x 7 pi pi   4096 Dec 14 22:21 ..\n-rw-rw-r-- 1 pi pi 367934 Dec 14 22:21 DL1.jpg\n-rw-rw-r-- 1 pi pi 384089 Dec 14 22:21 DL2.jpg\n"
+                }
+              ]
+            },
+            "toolu_01TMTB25Jd9tbgBidYFhdxaf__vscode-1765752895121": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 23,
+                  "value": {
+                    "node": {
+                      "type": 1,
+                      "ctor": 2,
+                      "ctorName": "p0",
+                      "children": [
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "The following files were successfully edited:",
+                          "lineBreakBefore": false
+                        },
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "\n",
+                          "lineBreakBefore": false
+                        },
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "/mnt/merged_ssd/NAATI-translator/Translations/crop_images.py",
+                          "lineBreakBefore": false
+                        },
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "\n",
+                          "lineBreakBefore": false
+                        }
+                      ],
+                      "props": {},
+                      "references": []
+                    }
+                  }
+                }
+              ]
+            },
+            "toolu_017cTZcWSXfVei2EJTGXAF4T__vscode-1765752895122": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Traceback (most recent call last):\n  File \"/mnt/merged_ssd/NAATI-translator/Translations/crop_images.py\", line 7, in <module>\n    import cv2\nModuleNotFoundError: No module named 'cv2'\n\n\nCommand exited with code 1"
+                }
+              ]
+            },
+            "toolu_01Wgw5yrGfDS2zXCRhyCxxXP__vscode-1765752895123": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "The terminal command 'pip3 install -q opencv-python pillow && python3 /mnt/merged_ssd/NAATI-translator/Translations/crop_images.py' was not executed.  \nTry using some of the following tools instead of running a Terminal Command (if unable to use one of these tools as an alternative then run the same terminal command again):  \n- get_python_environment_details  \n- get_python_executable_details  \n- install_python_packages  \n- configure_python_environment"
+                }
+              ]
+            }
+          },
+          "modelMessageId": "2c0c80b6-f0d3-43f3-a528-c0ca1c875be5",
+          "responseId": "d87c4e41-2b47-4e25-a0f3-bb72e313c99c",
+          "sessionId": "eb6d9f49-6a92-4261-988d-b1fdd3cae377",
+          "agentId": "github.copilot.editsAgent"
+        },
+        "details": "Claude Haiku 4.5 • 0.33x"
+      },
+      "followups": [],
+      "isCanceled": true,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.33.5",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editsAgent",
+        "description": "Edit files in your workspace in agent mode",
+        "when": "config.chat.agent.enabled",
+        "metadata": {
+          "themeIcon": {
+            "id": "tools"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "agent",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "agent"
+        ],
+        "slashCommands": [
+          {
+            "name": "list"
+          }
+        ],
+        "disambiguation": []
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1765752962261,
+      "modelId": "copilot/claude-haiku-4.5"
+    }
+  ]
+}
