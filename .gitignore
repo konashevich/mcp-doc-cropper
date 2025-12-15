@@ -98,6 +98,12 @@ ipython_config.py
 #   you might want to ignore it.
 #poetry.lock
 
+# RKNN Conversion
+rknn_env/
+rknn_task/rknn_env/
+rknn_task/rknn-toolkit2/
+
+
 # pdm
 #   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
 #pdm.lock
