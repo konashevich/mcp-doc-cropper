@@ -32,7 +32,7 @@ def get_local_ip():
         s.close()
     return ip
 
-SERVER_IP = get_local_ip()
+SERVER_IP = "cropper-mcp.local"
 
 def get_model():
     """Robust, lazy loading of the NPU model."""
