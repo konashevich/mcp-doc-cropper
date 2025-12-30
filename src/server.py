@@ -8,10 +8,10 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.responses import Response
 from mcp.server.fastmcp import FastMCP
-from ultralytics import YOLO
+from .npu_inference import NPUInference
 
 # --- Configuration ---
-MODEL_PATH = "/opt/models/yolo/yolo11l-seg.pt"
+MODEL_PATH = "/mnt/merged_ssd/mcp-doc-cropper/yolo11n-seg.rknn"
 PORT = 3099
 
 # --- Global State ---
@@ -34,19 +34,23 @@ def get_local_ip():
 SERVER_IP = get_local_ip()
 
 def get_model():
-    """Robust, lazy loading of the YOLO model."""
+    """Robust, lazy loading of the NPU model."""
     global _model
     if _model is not None:
         return _model
     
-    print(f"Loading model from {MODEL_PATH}...", file=sys.stderr)
+    print(f"Loading NPU model from {MODEL_PATH}...", file=sys.stderr)
     try:
-        _model = YOLO(MODEL_PATH)
-        print("Model loaded successfully.", file=sys.stderr)
+        _model = NPUInference(MODEL_PATH)
+        print("NPU Model loaded successfully.", file=sys.stderr)
         return _model
     except Exception as e:
-        print(f"CRITICAL ERROR loading model: {e}", file=sys.stderr)
+        print(f"CRITICAL ERROR loading NPU model: {e}", file=sys.stderr)
         return None
+
+import logging
+# Pre-configure logging to avoid FastMCP's basicConfig call failing or being needed
+logging.basicConfig(level=logging.INFO)
 
 # --- MCP Server Definition ---
 mcp = FastMCP("doc-cropper")
@@ -165,19 +169,19 @@ def get_batch_crop_command(directory_path: str, extensions: list[str] = ["jpg", 
 
 # --- Core Logic ---
 def run_crop(img: np.ndarray, model) -> np.ndarray:
-    """Core cropping logic shared between MCP and HTTP."""
+    """Core cropping logic using NPU backend."""
     # Run inference
-    results = model(img, verbose=False)
+    # Returns list of dicts: [{'box': [x1,y1,x2,y2], 'score': float, 'class_id': int}, ...]
+    results = model.run(img)
     
-    if not results or len(results[0].boxes) == 0:
+    if not results:
         print("No objects detected. Returning original.", file=sys.stderr)
         return img
 
     # Find largest box
-    boxes = results[0].boxes
-    largest_box = max(boxes, key=lambda x: x.xywh[0][2] * x.xywh[0][3])
-    
-    x1, y1, x2, y2 = map(int, largest_box.xyxy[0])
+    # Box format is [x1, y1, x2, y2]
+    largest_result = max(results, key=lambda x: (x['box'][2] - x['box'][0]) * (x['box'][3] - x['box'][1]))
+    x1, y1, x2, y2 = map(int, largest_result['box'])
     
     # Padding
     h, w = img.shape[:2]
@@ -197,6 +201,8 @@ async def lifespan(app: FastAPI):
     yield
     # Shutdown
     global _model
+    if _model:
+        _model.release()
     _model = None
 
 # --- HTTP Server (FastAPI) for Binary Transfer ---
@@ -234,11 +240,11 @@ async def run_dual_servers():
     
     # 1. Configure MCP Server on Port 3099
     # We use mcp.sse_app directly as it works with Uvicorn
-    config_mcp = uvicorn.Config(app=mcp.sse_app, host="0.0.0.0", port=3099, log_level="info")
+    config_mcp = uvicorn.Config(app=mcp.sse_app, host="0.0.0.0", port=3099, log_config=None)
     server_mcp = uvicorn.Server(config_mcp)
 
     # 2. Configure Crop API Server on Port 3098
-    config_crop = uvicorn.Config(app=crop_api_app, host="0.0.0.0", port=3098, log_level="info")
+    config_crop = uvicorn.Config(app=crop_api_app, host="0.0.0.0", port=3098, log_config=None)
     server_crop = uvicorn.Server(config_crop)
 
     print("Starting Dual Servers: MCP on 3099, CropAPI on 3098...", file=sys.stderr)

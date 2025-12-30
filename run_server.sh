@@ -1,8 +1,13 @@
 #!/bin/bash
 PROJECT_DIR="/mnt/merged_ssd/mcp-doc-cropper"
-VENV_PYTHON="$PROJECT_DIR/.venv/bin/python"
-UVICORN="$PROJECT_DIR/.venv/bin/uvicorn"
+# Use the NPU virtual environment (Python 3.10 + rknnlite2)
+VENV_PYTHON="/home/pi/npu_env/bin/python"
 
-echo "Starting Document Cropper MCP Server..." # Run the server script (which runs both MCP and CropAPI)
+echo "Starting Document Cropper MCP Server (NPU Enabled)..."
 cd $PROJECT_DIR
-exec $VENV_PYTHON src/server.py
+# Run as module to allow relative imports (from .npu_inference import ...)
+# Run as module to allow relative imports
+$VENV_PYTHON -m src.server
+
+echo "Server stopped. Press Enter to close..."
+read

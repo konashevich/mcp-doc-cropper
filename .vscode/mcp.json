@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "doc-cropper-local": {
+      "type": "sse",
+      "url": "http://127.0.0.1:3099/sse",
+      "transport": "sse"
+    },
+    "doc-cropper-lan": {
+      "type": "sse",
+      "url": "http://192.168.1.114:3099/sse",
+      "transport": "sse"
+    }
+  }
+}

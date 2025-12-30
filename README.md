@@ -65,6 +65,19 @@ Configure your `mcp.json` (or extension settings) to connect via **SSE**.
   }
 }
 ```
+or (for home network access from another machine): 
+```json
+{
+  "mcpServers": {
+    "doc-cropper": {
+      "type": "sse",
+      "url": "http://192.168.1.114:3099/sse",
+      "transport": "sse"
+    }
+  }
+}
+```
+
 
 ### 3. Usage (Zero-Step Flow)
 1.  The Agent connects to the MCP server.
