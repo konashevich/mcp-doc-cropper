@@ -8,6 +8,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.responses import Response
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 from .npu_inference import NPUInference
 
 # --- Configuration ---
@@ -53,7 +54,11 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 # --- MCP Server Definition ---
-mcp = FastMCP("doc-cropper")
+# Disable DNS rebinding protection to allow LAN access (e.g. from doc-cropper-lan)
+mcp = FastMCP(
+    "doc-cropper",
+    transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False)
+)
 
 
 @mcp.tool()
