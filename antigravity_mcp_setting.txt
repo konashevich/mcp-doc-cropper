@@ -1,10 +1,18 @@
-The following setting  is used in Google Antigravity IDE:
+The following setting is used in Google Antigravity IDE:
 {
   "mcpServers": {
-    "doc-cropper-lan": {
-      "type": "sse",
-      "serverUrl": "http://192.168.1.114:3099/sse",
-      "transport": "sse"
+    "cropper-mcp": {
+      "serverUrl": "http://cropper-mcp.local:3099/sse"
     }
   }
 }
+
+Add on both machines hostname:
+
+hostname: cropper-mcp.local
+
+- On the server (local linux machine with IP 192.168.1.114): 127.0.0.1 cropper-mcp.local
+- On the remote (win machine in the home network) 192.168.1.114 cropper-mcp.local
+
+For both machine the setting will be: 
+serverUrl: http://doc-cropper.local:3099/sse
