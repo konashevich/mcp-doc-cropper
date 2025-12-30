@@ -8,6 +8,3 @@ cd $PROJECT_DIR
 # Run as module to allow relative imports (from .npu_inference import ...)
 # Run as module to allow relative imports
 $VENV_PYTHON -m src.server
-
-echo "Server stopped. Press Enter to close..."
-read

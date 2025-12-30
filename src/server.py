@@ -57,6 +57,8 @@ logging.basicConfig(level=logging.INFO)
 # Disable DNS rebinding protection to allow LAN access (e.g. from doc-cropper-lan)
 mcp = FastMCP(
     "doc-cropper",
+    stateless_http=True,
+    json_response=True,
     transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False)
 )
 
@@ -88,8 +90,8 @@ def get_crop_command(input_path: str, output_path: str = None) -> str:
         # Default naming: name_cropped.ext
         out_file = in_file.with_name(f"{in_file.stem}_cropped{in_file.suffix}")
 
-    # 2. Construct Server URL (Pointing to the Crop API Port)
-    url = f"http://{SERVER_IP}:3098/crop"
+    # 2. Construct Server URL (Pointing to the Crop API)
+    url = f"http://{SERVER_IP}:3099/api/crop"
 
 
     # 3. Handle Overwrite Safety
@@ -124,7 +126,7 @@ def get_batch_crop_command(directory_path: str, extensions: list[str] = ["jpg", 
     
     dir_path = Path(directory_path).resolve()
     # Construct Server URL
-    url = f"http://{SERVER_IP}:3098/crop"
+    url = f"http://{SERVER_IP}:3099/api/crop"
     
     # Build extension glob pattern
     # We use a simple loop over extensions to be shell-agnostic (bash/zsh) safe
@@ -242,23 +244,40 @@ async def http_crop_endpoint(file: UploadFile = File(...)):
 # --- Server Execution ---
 async def run_dual_servers():
     import uvicorn
+    import contextlib
+    from starlette.applications import Starlette
+    from starlette.routing import Mount
     
-    # 1. Configure MCP Server on Port 3099
-    # We use mcp.sse_app directly as it works with Uvicorn
-    config_mcp = uvicorn.Config(app=mcp.sse_app, host="0.0.0.0", port=3099, log_config=None)
-    server_mcp = uvicorn.Server(config_mcp)
-
-    # 2. Configure Crop API Server on Port 3098
-    config_crop = uvicorn.Config(app=crop_api_app, host="0.0.0.0", port=3098, log_config=None)
-    server_crop = uvicorn.Server(config_crop)
-
-    print("Starting Dual Servers: MCP on 3099, CropAPI on 3098...", file=sys.stderr)
+    # Create combined app with both MCP (streamable-http) and Crop API
+    @contextlib.asynccontextmanager
+    async def lifespan(app: Starlette):
+        async with mcp.session_manager.run():
+            yield
     
-    # Run both concurrently
-    await asyncio.gather(
-        server_mcp.serve(),
-        server_crop.serve()
+    # Combined Starlette app:
+    # - /mcp -> MCP Streamable HTTP endpoint
+    # - /api/crop -> Direct crop API
+    
+    # Set streamable_http_path to root so endpoint is at /mcp not /mcp/mcp
+    mcp.settings.streamable_http_path = "/"
+    
+    combined_app = Starlette(
+        routes=[
+            Mount("/mcp", app=mcp.streamable_http_app()),
+            Mount("/api", app=crop_api_app),
+        ],
+        lifespan=lifespan,
     )
+    
+    # Single server on port 3099
+    config = uvicorn.Config(app=combined_app, host="0.0.0.0", port=3099, log_config=None)
+    server = uvicorn.Server(config)
+
+    print("Starting Server on port 3099:", file=sys.stderr)
+    print("  - MCP endpoint: http://0.0.0.0:3099/mcp", file=sys.stderr)
+    print("  - Crop API: http://0.0.0.0:3099/api/crop", file=sys.stderr)
+    
+    await server.serve()
 
 if __name__ == "__main__":
     import asyncio

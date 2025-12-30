@@ -1,18 +1,25 @@
-The following setting is used in Google Antigravity IDE:
+The following settings are for Google Antigravity IDE:
+
+=== RECOMMENDED: Streamable HTTP Transport ===
 {
   "mcpServers": {
     "cropper-mcp": {
-      "serverUrl": "http://cropper-mcp.local:3099/sse"
+      "serverUrl": "http://cropper-mcp.local:3099/mcp/"
     }
   }
 }
 
-Add on both machines hostname:
+Note: The trailing slash is REQUIRED for /mcp/
 
-hostname: cropper-mcp.local
+=== Direct API (Bypass MCP - for manual use) ===
+curl -s -F 'file=@/path/to/image.jpg' 'http://cropper-mcp.local:3099/api/crop' -o output.jpg
 
-- On the server (local linux machine with IP 192.168.1.114): 127.0.0.1 cropper-mcp.local
-- On the remote (win machine in the home network) 192.168.1.114 cropper-mcp.local
+---
 
-For both machine the setting will be: 
-serverUrl: http://doc-cropper.local:3099/sse
+HOSTNAME SETUP (required on both machines):
+
+On the server (Linux, IP 192.168.1.114):
+  Add to /etc/hosts: 127.0.0.1 cropper-mcp.local
+
+On the client (Windows):
+  Add to C:\Windows\System32\drivers\etc\hosts: 192.168.1.114 cropper-mcp.local
