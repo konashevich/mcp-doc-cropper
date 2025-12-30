@@ -1,3 +1,5 @@
+for vscode:
+
 {
   "mcpServers": {
     "doc-cropper-local": {
