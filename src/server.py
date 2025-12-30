@@ -64,10 +64,152 @@ mcp = FastMCP(
 
 
 @mcp.tool()
+def crop_image(input_path: str, output_path: str = None) -> str:
+    """
+    Crop a document image directly on the server.
+    Use this when calling from a remote machine - files are processed locally.
+    
+    Args:
+        input_path: Absolute path to the source image file on the server.
+        output_path: Optional absolute path for the result.
+                     If not provided, defaults to <original_name>_cropped.<ext>.
+    
+    Returns:
+        Success message with output path and size, or error/warning message.
+    """
+    import subprocess
+    from pathlib import Path
+    
+    in_file = Path(input_path).resolve()
+    
+    if not in_file.exists():
+        return f"Error: Input file not found: {in_file}"
+    
+    input_size = in_file.stat().st_size
+    
+    if output_path:
+        out_file = Path(output_path).resolve()
+    else:
+        out_file = in_file.with_name(f"{in_file.stem}_cropped{in_file.suffix}")
+    
+    # Ensure output directory exists
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Execute crop via local API, capture headers to check crop status
+    url = "http://127.0.0.1:3099/api/crop"
+    result = subprocess.run(
+        ["curl", "-s", "-f", "-D", "-", "-F", f"file=@{in_file}", url, "-o", str(out_file)],
+        capture_output=True, timeout=60
+    )
+    
+    # Parse headers to check crop status
+    headers_output = result.stdout.decode() if result.stdout else ""
+    was_cropped = "X-Crop-Status: cropped" in headers_output
+    no_detection = "X-Crop-Status: no-detection" in headers_output
+    
+    # Verify success: curl succeeded AND output exists AND output has reasonable size
+    if result.returncode == 0 and out_file.exists():
+        output_size = out_file.stat().st_size
+        # Check output is valid (at least 1KB and not an error message)
+        if output_size > 1024:
+            if no_detection:
+                return f"Warning: No document detected in {in_file.name} - saved original image to {out_file} ({output_size // 1024} KB)"
+            else:
+                return f"Success: {out_file} ({output_size // 1024} KB)"
+        else:
+            # Likely an error response, not an image
+            out_file.unlink(missing_ok=True)  # Remove invalid file
+            return f"Error: Crop failed for {in_file.name} - output too small ({output_size} bytes), possibly server error"
+    else:
+        error = result.stderr.decode() if result.stderr else f"curl exit code: {result.returncode}"
+        out_file.unlink(missing_ok=True)  # Clean up partial file
+        return f"Error: {error}"
+
+
+@mcp.tool()
+def crop_batch(directory_path: str, output_directory: str = None, extensions: list[str] = ["jpg", "jpeg", "png"]) -> str:
+    """
+    Crop all images in a directory on the server.
+    Processes files one-by-one to prevent memory issues.
+    
+    Args:
+        directory_path: Absolute path to folder containing images on the server.
+        output_directory: Optional output folder. If None, saves with '_cropped' suffix.
+        extensions: File extensions to process (default: jpg, jpeg, png).
+    
+    Returns:
+        Summary of processed files with success/failure/warning status for each.
+    """
+    import subprocess
+    from pathlib import Path
+    
+    dir_path = Path(directory_path).resolve()
+    if not dir_path.is_dir():
+        return f"Error: Directory not found: {dir_path}"
+    
+    url = "http://127.0.0.1:3099/api/crop"
+    results = []
+    success_count = 0
+    warning_count = 0
+    fail_count = 0
+    
+    for ext in extensions:
+        # Case-insensitive: check both lower and upper case
+        for pattern in [f"*.{ext}", f"*.{ext.upper()}"]:
+            for img_file in dir_path.glob(pattern):
+                if output_directory:
+                    out_dir = Path(output_directory).resolve()
+                    out_dir.mkdir(parents=True, exist_ok=True)
+                    out_file = out_dir / img_file.name
+                else:
+                    out_file = img_file.with_name(f"{img_file.stem}_cropped{img_file.suffix}")
+                
+                try:
+                    # Include -D - to capture headers for crop status
+                    result = subprocess.run(
+                        ["curl", "-s", "-f", "-D", "-", "-F", f"file=@{img_file}", url, "-o", str(out_file)],
+                        capture_output=True, timeout=120
+                    )
+                    
+                    # Parse headers to check crop status
+                    headers_output = result.stdout.decode() if result.stdout else ""
+                    no_detection = "X-Crop-Status: no-detection" in headers_output
+                    
+                    # Verify: curl OK + file exists + file is valid image size (>1KB)
+                    if result.returncode == 0 and out_file.exists() and out_file.stat().st_size > 1024:
+                        size_kb = out_file.stat().st_size // 1024
+                        if no_detection:
+                            results.append(f"⚠ {img_file.name}: no document detected, saved original ({size_kb} KB)")
+                            warning_count += 1
+                        else:
+                            results.append(f"✓ {img_file.name} → {out_file.name} ({size_kb} KB)")
+                            success_count += 1
+                    else:
+                        out_file.unlink(missing_ok=True)  # Remove invalid/partial file
+                        results.append(f"✗ {img_file.name}: crop failed (invalid output)")
+                        fail_count += 1
+                        
+                except subprocess.TimeoutExpired:
+                    out_file.unlink(missing_ok=True)
+                    results.append(f"✗ {img_file.name}: timeout")
+                    fail_count += 1
+                except Exception as e:
+                    results.append(f"✗ {img_file.name}: {str(e)}")
+                    fail_count += 1
+    
+    if not results:
+        return f"No images found in {dir_path} with extensions: {extensions}"
+    
+    summary = f"Batch complete: {success_count} cropped, {warning_count} no-detection, {fail_count} failed\n"
+    return summary + "\n".join(results)
+
+
+@mcp.tool()
 def get_crop_command(input_path: str, output_path: str = None) -> str:
     """
+    [LEGACY - use crop_image instead]
     Generates the terminal command to crop a local document image.
-    Use this to process files efficiently without memory overhead.
+    Only use if agent runs on the SAME machine as the server.
     
     Args:
         input_path: Absolute path to the source image file.
@@ -175,15 +317,18 @@ def get_batch_crop_command(directory_path: str, extensions: list[str] = ["jpg", 
 
 
 # --- Core Logic ---
-def run_crop(img: np.ndarray, model) -> np.ndarray:
-    """Core cropping logic using NPU backend."""
+def run_crop(img: np.ndarray, model) -> tuple[np.ndarray, bool]:
+    """
+    Core cropping logic using NPU backend.
+    Returns: (image, was_cropped) tuple
+    """
     # Run inference
     # Returns list of dicts: [{'box': [x1,y1,x2,y2], 'score': float, 'class_id': int}, ...]
     results = model.run(img)
     
     if not results:
         print("No objects detected. Returning original.", file=sys.stderr)
-        return img
+        return img, False
 
     # Find largest box
     # Box format is [x1, y1, x2, y2]
@@ -198,7 +343,7 @@ def run_crop(img: np.ndarray, model) -> np.ndarray:
     x2 = min(w, x2 + padding)
     y2 = min(h, y2 + padding)
 
-    return img[y1:y2, x1:x2]
+    return img[y1:y2, x1:x2], True
 
 # --- FastAPI App ---
 @asynccontextmanager
@@ -220,7 +365,7 @@ async def http_crop_endpoint(file: UploadFile = File(...)):
     """
     Direct HTTP endpoint for cropping images. Returns raw image bytes.
     Accepts: multipart/form-data file upload.
-    Returns: image/jpeg
+    Returns: image/jpeg with X-Crop-Status header indicating if crop occurred.
     """
     model = get_model()
     if model is None:
@@ -234,10 +379,13 @@ async def http_crop_endpoint(file: UploadFile = File(...)):
         if img is None:
             raise HTTPException(status_code=400, detail="Invalid image data")
             
-        cropped_img = run_crop(img, model)
+        cropped_img, was_cropped = run_crop(img, model)
         
         _, buffer = cv2.imencode('.jpg', cropped_img)
-        return Response(content=buffer.tobytes(), media_type="image/jpeg")
+        
+        # Return with header indicating crop status
+        headers = {"X-Crop-Status": "cropped" if was_cropped else "no-detection"}
+        return Response(content=buffer.tobytes(), media_type="image/jpeg", headers=headers)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
