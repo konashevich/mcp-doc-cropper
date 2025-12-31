@@ -96,10 +96,11 @@ def crop_image(input_path: str, output_path: str = None) -> str:
     out_file.parent.mkdir(parents=True, exist_ok=True)
     
     # Execute crop via local API, capture headers to check crop status
+    # Use longer timeout (180s) in case model needs to load on first request
     url = "http://127.0.0.1:3099/api/crop"
     result = subprocess.run(
-        ["curl", "-s", "-f", "-D", "-", "-F", f"file=@{in_file}", url, "-o", str(out_file)],
-        capture_output=True, timeout=60
+        ["curl", "-s", "-f", "--max-time", "180", "-D", "-", "-F", f"file=@{in_file}", url, "-o", str(out_file)],
+        capture_output=True, timeout=200
     )
     
     # Parse headers to check crop status
@@ -166,9 +167,10 @@ def crop_batch(directory_path: str, output_directory: str = None, extensions: li
                 
                 try:
                     # Include -D - to capture headers for crop status
+                    # Use longer timeout for model loading on first request
                     result = subprocess.run(
-                        ["curl", "-s", "-f", "-D", "-", "-F", f"file=@{img_file}", url, "-o", str(out_file)],
-                        capture_output=True, timeout=120
+                        ["curl", "-s", "-f", "--max-time", "180", "-D", "-", "-F", f"file=@{img_file}", url, "-o", str(out_file)],
+                        capture_output=True, timeout=200
                     )
                     
                     # Parse headers to check crop status
@@ -399,8 +401,16 @@ async def run_dual_servers():
     # Create combined app with both MCP (streamable-http) and Crop API
     @contextlib.asynccontextmanager
     async def lifespan(app: Starlette):
+        # Pre-load NPU model at startup to avoid timeout on first request
+        print("Pre-loading NPU model...", file=sys.stderr)
+        get_model()
         async with mcp.session_manager.run():
             yield
+        # Cleanup model on shutdown
+        global _model
+        if _model:
+            _model.release()
+            _model = None
     
     # Combined Starlette app:
     # - /mcp -> MCP Streamable HTTP endpoint
