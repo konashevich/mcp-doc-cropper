@@ -77,15 +77,12 @@ def crop_image(input_path: str, output_path: str = None) -> str:
     Returns:
         Success message with output path and size, or error/warning message.
     """
-    import subprocess
     from pathlib import Path
     
     in_file = Path(input_path).resolve()
     
     if not in_file.exists():
         return f"Error: Input file not found: {in_file}"
-    
-    input_size = in_file.stat().st_size
     
     if output_path:
         out_file = Path(output_path).resolve()
@@ -95,36 +92,35 @@ def crop_image(input_path: str, output_path: str = None) -> str:
     # Ensure output directory exists
     out_file.parent.mkdir(parents=True, exist_ok=True)
     
-    # Execute crop via local API, capture headers to check crop status
-    # Use longer timeout (180s) in case model needs to load on first request
-    url = "http://127.0.0.1:3099/api/crop"
-    result = subprocess.run(
-        ["curl", "-s", "-f", "--max-time", "180", "-D", "-", "-F", f"file=@{in_file}", url, "-o", str(out_file)],
-        capture_output=True, timeout=200
-    )
-    
-    # Parse headers to check crop status
-    headers_output = result.stdout.decode() if result.stdout else ""
-    was_cropped = "X-Crop-Status: cropped" in headers_output
-    no_detection = "X-Crop-Status: no-detection" in headers_output
-    
-    # Verify success: curl succeeded AND output exists AND output has reasonable size
-    if result.returncode == 0 and out_file.exists():
+    try:
+        # Load model (uses cached instance if already loaded)
+        model = get_model()
+        if model is None:
+            return f"Error: NPU model not loaded"
+        
+        # Read image
+        img = cv2.imread(str(in_file))
+        if img is None:
+            return f"Error: Could not read image: {in_file}"
+        
+        # Run crop directly (not via HTTP to avoid self-blocking)
+        cropped_img, was_cropped = run_crop(img, model)
+        
+        # Save result
+        cv2.imwrite(str(out_file), cropped_img)
+        
+        if not out_file.exists():
+            return f"Error: Failed to save output to {out_file}"
+        
         output_size = out_file.stat().st_size
-        # Check output is valid (at least 1KB and not an error message)
-        if output_size > 1024:
-            if no_detection:
-                return f"Warning: No document detected in {in_file.name} - saved original image to {out_file} ({output_size // 1024} KB)"
-            else:
-                return f"Success: {out_file} ({output_size // 1024} KB)"
+        
+        if was_cropped:
+            return f"Success: {out_file} ({output_size // 1024} KB)"
         else:
-            # Likely an error response, not an image
-            out_file.unlink(missing_ok=True)  # Remove invalid file
-            return f"Error: Crop failed for {in_file.name} - output too small ({output_size} bytes), possibly server error"
-    else:
-        error = result.stderr.decode() if result.stderr else f"curl exit code: {result.returncode}"
-        out_file.unlink(missing_ok=True)  # Clean up partial file
-        return f"Error: {error}"
+            return f"Warning: No document detected in {in_file.name} - saved original image to {out_file} ({output_size // 1024} KB)"
+            
+    except Exception as e:
+        return f"Error: {str(e)}"
 
 
 @mcp.tool()
@@ -141,14 +137,17 @@ def crop_batch(directory_path: str, output_directory: str = None, extensions: li
     Returns:
         Summary of processed files with success/failure/warning status for each.
     """
-    import subprocess
     from pathlib import Path
     
     dir_path = Path(directory_path).resolve()
     if not dir_path.is_dir():
         return f"Error: Directory not found: {dir_path}"
     
-    url = "http://127.0.0.1:3099/api/crop"
+    # Get model once for all images
+    model = get_model()
+    if model is None:
+        return f"Error: NPU model not loaded"
+    
     results = []
     success_count = 0
     warning_count = 0
@@ -166,35 +165,32 @@ def crop_batch(directory_path: str, output_directory: str = None, extensions: li
                     out_file = img_file.with_name(f"{img_file.stem}_cropped{img_file.suffix}")
                 
                 try:
-                    # Include -D - to capture headers for crop status
-                    # Use longer timeout for model loading on first request
-                    result = subprocess.run(
-                        ["curl", "-s", "-f", "--max-time", "180", "-D", "-", "-F", f"file=@{img_file}", url, "-o", str(out_file)],
-                        capture_output=True, timeout=200
-                    )
+                    # Read image
+                    img = cv2.imread(str(img_file))
+                    if img is None:
+                        results.append(f"✗ {img_file.name}: could not read image")
+                        fail_count += 1
+                        continue
                     
-                    # Parse headers to check crop status
-                    headers_output = result.stdout.decode() if result.stdout else ""
-                    no_detection = "X-Crop-Status: no-detection" in headers_output
+                    # Crop directly (no HTTP call to avoid blocking)
+                    cropped_img, was_cropped = run_crop(img, model)
                     
-                    # Verify: curl OK + file exists + file is valid image size (>1KB)
-                    if result.returncode == 0 and out_file.exists() and out_file.stat().st_size > 1024:
+                    # Save result
+                    cv2.imwrite(str(out_file), cropped_img)
+                    
+                    if out_file.exists() and out_file.stat().st_size > 1024:
                         size_kb = out_file.stat().st_size // 1024
-                        if no_detection:
-                            results.append(f"⚠ {img_file.name}: no document detected, saved original ({size_kb} KB)")
-                            warning_count += 1
-                        else:
+                        if was_cropped:
                             results.append(f"✓ {img_file.name} → {out_file.name} ({size_kb} KB)")
                             success_count += 1
+                        else:
+                            results.append(f"⚠ {img_file.name}: no document detected, saved original ({size_kb} KB)")
+                            warning_count += 1
                     else:
-                        out_file.unlink(missing_ok=True)  # Remove invalid/partial file
+                        out_file.unlink(missing_ok=True)
                         results.append(f"✗ {img_file.name}: crop failed (invalid output)")
                         fail_count += 1
                         
-                except subprocess.TimeoutExpired:
-                    out_file.unlink(missing_ok=True)
-                    results.append(f"✗ {img_file.name}: timeout")
-                    fail_count += 1
                 except Exception as e:
                     results.append(f"✗ {img_file.name}: {str(e)}")
                     fail_count += 1

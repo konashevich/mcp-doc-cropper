@@ -4,12 +4,12 @@ for vscode:
   "mcpServers": {
     "doc-cropper-local": {
       "type": "sse",
-      "url": "http://127.0.0.1:3099/sse",
+      "url": "http://127.0.0.1:3099/mcp",
       "transport": "sse"
     },
     "doc-cropper-lan": {
       "type": "sse",
-      "url": "http://192.168.1.114:3099/sse",
+      "url": "http://192.168.1.114:3099/mcp",
       "transport": "sse"
     }
   }

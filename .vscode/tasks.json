@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Doc Cropper",
+            "type": "shell",
+            "command": "./run_server.sh",
+            "options": {
+                "cwd": "/mnt/merged_ssd/mcp-doc-cropper"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Stop Doc Cropper",
+            "type": "shell",
+            "command": "pkill -f 'src.server'",
+            "problemMatcher": []
+        }
+    ]
+}

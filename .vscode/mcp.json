@@ -2,7 +2,7 @@
   "servers": {
     "cropper-mcp": {
       "type": "sse",
-      "url": "http://cropper-mcp.local/sse"
+      "url": "http://cropper-mcp.local/mcp"
     }
   }
 }

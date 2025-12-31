@@ -50,7 +50,7 @@ This starts TWO services:
 Configure your `mcp.json` (or extension settings) to connect via **SSE**.
 
 **Critical Settings:**
-- **URL**: `http://<IP>:3099/sse` (Use `127.0.0.1` if VS Code is on the same machine).
+- **URL**: `http://<IP>:3099/mcp` (Use `127.0.0.1` if VS Code is on the same machine).
 - **Type**: `"sse"` (This is mandatory to prevent it from trying to run a local process).
 
 #### Example `mcp.json`:
@@ -59,7 +59,7 @@ Configure your `mcp.json` (or extension settings) to connect via **SSE**.
   "mcpServers": {
     "doc-cropper": {
       "type": "sse",
-      "url": "http://127.0.0.1:3099/sse", 
+      "url": "http://127.0.0.1:3099/mcp", 
       "transport": "sse"
     }
   }
@@ -71,7 +71,7 @@ or (for home network access from another machine):
   "mcpServers": {
     "doc-cropper": {
       "type": "sse",
-      "url": "http://192.168.1.114:3099/sse",
+      "url": "http://192.168.1.114:3099/mcp",
       "transport": "sse"
     }
   }
