@@ -56,7 +56,7 @@ logging.basicConfig(level=logging.INFO)
 # --- MCP Server Definition ---
 # Disable DNS rebinding protection to allow LAN access (e.g. from doc-cropper-lan)
 mcp = FastMCP(
-    "doc-cropper",
+    "cropper-mcp",
     stateless_http=True,
     json_response=True,
     transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False)
