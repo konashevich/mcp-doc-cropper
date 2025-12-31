@@ -1,42 +1,39 @@
-*  Executing task: ./run_server.sh 
+Executing task: ./run_server.sh 
 
-source /mnt/merged_ssd/NAATI-translator/Translations/.venv/bin/activate
 Starting Document Cropper MCP Server (NPU Enabled)...
 Starting Server on port 3099:
   - MCP endpoint: http://0.0.0.0:3099/mcp
   - Crop API: http://0.0.0.0:3099/api/crop
-I:uvicorn.error:Started server process [44939]
+I:uvicorn.error:Started server process [50926]
 I:uvicorn.error:Waiting for application startup.
 Pre-loading NPU model...
 Loading NPU model from /mnt/merged_ssd/mcp-doc-cropper/yolo11n-seg.rknn...
 Loading RKNN model: /mnt/merged_ssd/mcp-doc-cropper/yolo11n-seg.rknn
-I RKNN: [17:30:51.691] RKNN Runtime Information, librknnrt version: 2.3.0 (c949ad889d@2024-11-07T11:35:33)
-I RKNN: [17:30:51.692] RKNN Driver Information, version: 0.9.8
-I RKNN: [17:30:51.692] RKNN Model Information, version: 6, toolkit version: 2.3.0(compiler version: 2.3.0 (c949ad889d@2024-11-07T11:39:30)), target: RKNPU v2, target platform: rk3588, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
-W RKNN: [17:30:51.728] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
+I RKNN: [17:56:38.064] RKNN Runtime Information, librknnrt version: 2.3.0 (c949ad889d@2024-11-07T11:35:33)
+I RKNN: [17:56:38.064] RKNN Driver Information, version: 0.9.8
+I RKNN: [17:56:38.064] RKNN Model Information, version: 6, toolkit version: 2.3.0(compiler version: 2.3.0 (c949ad889d@2024-11-07T11:39:30)), target: RKNPU v2, target platform: rk3588, framework name: ONNX, framework layout: NCHW, model inference type: static_shape
+W RKNN: [17:56:38.091] query RKNN_QUERY_INPUT_DYNAMIC_RANGE error, rknn model is static shape type, please export rknn with dynamic_shapes
 W Query dynamic range failed. Ret code: RKNN_ERR_MODEL_INVALID. (If it is a static shape RKNN model, please ignore the above warning message.)
 NPU Model loaded successfully.
 I:mcp.server.streamable_http_manager:StreamableHTTP session manager started
 I:uvicorn.error:Application startup complete.
 I:uvicorn.error:Uvicorn running on http://0.0.0.0:3099 (Press CTRL+C to quit)
-I:uvicorn.access:127.0.0.1:33828 - "POST /mcp HTTP/1.1" 307
-I:uvicorn.access:127.0.0.1:33828 - "POST /mcp/ HTTP/1.1" 200
+I:uvicorn.access:127.0.0.1:51398 - "POST /mcp HTTP/1.1" 307
+I:uvicorn.access:127.0.0.1:51398 - "POST /mcp/ HTTP/1.1" 200
 I:mcp.server.streamable_http:Terminating session: None
-I:uvicorn.access:127.0.0.1:33828 - "GET /mcp HTTP/1.1" 307
-I:uvicorn.access:127.0.0.1:33828 - "GET /mcp/ HTTP/1.1" 200
-I:uvicorn.access:127.0.0.1:33832 - "POST /mcp HTTP/1.1" 307
-I:uvicorn.access:127.0.0.1:33832 - "POST /mcp/ HTTP/1.1" 202
+I:uvicorn.access:127.0.0.1:51398 - "GET /mcp HTTP/1.1" 307
+I:uvicorn.access:127.0.0.1:51398 - "GET /mcp/ HTTP/1.1" 200
+I:uvicorn.access:127.0.0.1:51414 - "POST /mcp HTTP/1.1" 307
+I:uvicorn.access:127.0.0.1:51414 - "POST /mcp/ HTTP/1.1" 202
 I:mcp.server.streamable_http:Terminating session: None
-I:uvicorn.access:127.0.0.1:33832 - "POST /mcp HTTP/1.1" 307
+I:uvicorn.access:127.0.0.1:51414 - "POST /mcp HTTP/1.1" 307
 I:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
-I:uvicorn.access:127.0.0.1:33832 - "POST /mcp/ HTTP/1.1" 200
+I:uvicorn.access:127.0.0.1:51414 - "POST /mcp/ HTTP/1.1" 200
 I:mcp.server.streamable_http:Terminating session: None
-I:uvicorn.access:127.0.0.1:49964 - "POST /mcp HTTP/1.1" 307
-I:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-I:uvicorn.access:127.0.0.1:49964 - "POST /mcp/ HTTP/1.1" 200
-I:mcp.server.streamable_http:Terminating session: None
-I:uvicorn.access:127.0.0.1:46242 - "POST /mcp HTTP/1.1" 307
+I:uvicorn.access:127.0.0.1:55258 - "POST /mcp HTTP/1.1" 307
 I:mcp.server.lowlevel.server:Processing request of type CallToolRequest
 No objects detected. Returning original.
-I:uvicorn.access:127.0.0.1:46242 - "POST /mcp/ HTTP/1.1" 200
+I:uvicorn.access:127.0.0.1:55258 - "POST /mcp/ HTTP/1.1" 200
 I:mcp.server.streamable_http:Terminating session: None
+I:uvicorn.error:Shutting down
+I:uvicorn.error:Waiting for connections to close. (CTRL+C to force quit)

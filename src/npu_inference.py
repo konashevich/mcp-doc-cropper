@@ -16,7 +16,7 @@ class NPUInference:
             raise RuntimeError("Error initializing NPU runtime")
             
         self.img_size = 640  # Standard for this model
-        self.conf_thres = 0.15
+        self.conf_thres = 0.10
         self.iou_thres = 0.45
 
     def preprocess(self, img):
