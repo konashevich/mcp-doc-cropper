@@ -29,20 +29,22 @@ You are maintaining `mcp-doc-cropper`, a **High-Performance Hybrid MCP Server** 
 - **Clean Code**: No commented-out code. The agent needs the *current best tool*.
 
 ## 3. Operations
-- **Start**: `./run_server.sh`. Watch for zombie processes on port 3099 (`lsof -i :3099`).
-- **Verify**: Use real `curl` commands against `localhost:3099`.
+- **System Service**: Managed via systemd user service `cropper-mcp.service`.
+- **Status**: `systemctl --user status cropper-mcp`
+- **Restart**: `systemctl --user restart cropper-mcp`
+- **Logs**: `tail -f /mnt/merged_ssd/mcp-doc-cropper/server.log`
+- **Verify**: Use real `curl` commands against `localhost:3099/api/crop`.
 
 ## 4. Environment
-- **Hardware**: FriendlyELEC CM3588 (ARM64).
+- **Hardware**: FriendlyELEC CM3588 (RK3588 NPU).
 - **Paths**: `/mnt/merged_ssd/mcp-doc-cropper`.
-- **Models**: `/opt/models/yolo/yolo11l-seg.pt` (Assume exists).
+- **Model**: `/mnt/merged_ssd/mcp-doc-cropper/yolo11n-seg.rknn` (Pre-loaded on start).
+- **Network**: Accessible via `cropper-mcp.local:3099`.
 
 ## 5. Mandatory Testing
-- **Rule**: After making changes, you MUST start the server and verify functionality using the actual MCP client in this workspace.
-- **Scope**: Use `test` folder files:
-    - `test/DL1.jpg`
-    - `test/DL2.jpg`
+- **Rule**: After making changes, you MUST restart the service and verify functionality.
+- **Scope**: Use `test` folder files: `test/DL1.jpg`, `test/DL2.jpg`.
 - **Method**:
-    1. Start server: `./run_server.sh`
+    1. Restart service: `systemctl --user restart cropper-mcp`
     2. Call MCP tools from the Agent (this workspace) on the test files.
 - **Config**: MCP settings for this workspace are at `/home/pi/.gemini/antigravity/mcp_config.json`.
