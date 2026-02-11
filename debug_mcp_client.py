@@ -4,12 +4,12 @@ import json
 import sys
 
 BASE_URL = "http://cropper-mcp.local:3099"
-SSE_URL = f"{BASE_URL}/sse"
+SSE_URL = f"{BASE_URL}/mcp/"
 
 def run_client():
     print(f"Connecting to {SSE_URL}...")
     try:
-        req = urllib.request.Request(SSE_URL)
+        req = urllib.request.Request(SSE_URL, headers={'Accept': 'text/event-stream'})
         with urllib.request.urlopen(req) as response:
             endpoint_url = None
             for line in response:
